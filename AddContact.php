@@ -14,15 +14,23 @@
 	} 
 	else
 	{
-		$sql = "insert into contacts (userid,firstname, lastname, phone, email) VALUES (" . $userId . ",'" . $firstname . "', '" . $lastname . "', '" . $phone . "', '" . $email . "')";
-		if( $result = $conn->query($sql) != TRUE )
+		//prepared statement for adding contact
+		if($stmt = $conn->prepare("insert into contacts (userid,firstname, lastname, phone, email) VALUES (?,?,?,?,?)"))
 		{
-			returnWithError( $conn->error );
+			$stmt->bind_param("issss", $userId, $firstname, $lastname, $phone, $email);
+
+			$stmt->execute();
+			$stmt->close();
 		}
+	    $retValue = 'Contact Added';
+	    //message for when contact is added
+	    sendResultInfoAsJson( $retValue );
+
+
 		$conn->close();
 	}
 	
-	returnWithError("");
+//	returnWithError("");
 	
 	function getRequestInfo()
 	{

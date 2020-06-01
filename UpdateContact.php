@@ -13,15 +13,18 @@
 		returnWithError( $conn->connect_error );
 	} 
 	
-	$sql = "UPDATE contacts SET firstname = '$firstname', lastname = '$lastname', phone = '$phone' , email = '$email' WHERE id = $contactid  ";
-	if( $conn->query($sql) === TRUE )
+	//prepared statement for upddating the contact with info from the json
+	if($stmt = $conn->prepare("UPDATE contacts SET firstname = ?, lastname = ?, phone = ?, email = ? WHERE id = ?"))
 	{
+		$stmt->bind_param("ssssi",$firstname,$lastname,$phone,$email,$contactid);
+		$stmt->execute();
+		$stmt->close();
 		echo "updated";;
 	}
-		$conn->close();
+
 	
 	
-	returnWithError("");
+	//returnWithError("");
 	
 	function getRequestInfo()
 	{
