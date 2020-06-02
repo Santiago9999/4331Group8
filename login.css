@@ -1,0 +1,69 @@
+input[type=text], input[type=password] {
+    width: 18%;
+    padding: 12px 20px;
+    margin: 0 41%;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+label {
+    padding: 0 41%;
+    margin: 10px 0;
+    display: inline-block;
+    vertical-align: middle;
+    color: white;
+}
+
+button {
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 1% 41%;
+    border: none;
+    cursor: pointer;
+    width: 18%;
+}
+
+button:hover {
+    background-color: #4CAF20;
+}
+
+h1 {
+    position: relative;
+    bottom: 50%;
+
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+}
+
+body {
+    background:url("background.jpg");
+    height: 100%;
+}
+
+li {
+    text-align: center;
+}
+
+.container {
+    z-index: 1;
+}
+
+.rectangle {
+    width: 40%;
+    height: 200px;
+    padding: 12px 20px;
+    margin: 0 30%;
+    background-color: black;
+    z-index: -1;
+}
+
+.toggleMenu {
+    display: none;
+}

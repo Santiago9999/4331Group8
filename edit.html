@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--Not using JQuery *yet*, but just in case.-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+    	<title>Edit Contact</title>
+    	<script type="text/javascript" src="js/code.js"></script>
+        <script type="text/javascript" src="js/sha1.js"></script>
+    	<link rel="stylesheet" type="text/css" href="login.css">
+    	<style>
+    	    #editResult {
+    	        text-align: center;
+    	        font-size: 40px;
+    	        font-style: italic;
+    	        color: gray;
+    	    }
+    	</style>
+    </head>
+    
+    <body>
+        <span id="login"></span>
+
+        <h1 style="margin-top:30px; margin-bottom:30px"><u>Update Contact</u></h1>
+        <div id="container">
+            <form action="/action_page.php" method="post">
+                <label for="firstName"><b>New First Name:</b></label><br>
+                <input type="text" class="textFields" id="firstname" onkeypress="if(event.keyCode == 13) {editPage(localStorage['id'])}" placeholder="Enter First Name">
+                <br>
+                <label for="lastName"><b>New Last Name:</b></label><br>
+                <input type="text" class="textFields" id="lastname" onkeypress="if(event.keyCode == 13) {editPage(localStorage['id'])}" placeholder="Enter Last Name">
+                <br>
+        		<label for="phone"><b>New Phone Number:</b></label><br>
+        		<input type="text" class="textFields" id="phone" onkeypress="if(event.keyCode == 13) {editPage(localStorage['id'])}" placeholder="Enter Phone Number">
+        		<br>
+        		<label for="email"><b>New Email:</b></label>
+        		<input type="text" class="textFields" id="email" onkeypress="if(event.keyCode == 13) {editPage(localStorage['id'])}" placeholder="Enter Email">
+        		<br>
+                <p id="editResult"></p>
+        		
+        		<button type="button" id="editButton2" class="buttons" onclick="editPage(localStorage['id']);"> Save Changes </button>
+        		
+            </form>
+            <span id="editResult"></span>
+            
+            <button type="button" id="returnButton" class="buttons" onclick="window.location.href = 'main.html';"> Return </button>
+        </div>
+        
+    <!--    <script type="text/javascript">var id = localStorage["id"]; editButton(id);</script> -->
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+        
+
+
+        <!--Not using JQuery *yet*, but just in case.-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+    	<title>Register</title>
+    	<script type="text/javascript" src="js/code.js"></script>
+        <script type="text/javascript" src="js/sha1.js"></script>
+    	<link rel="stylesheet" type="text/css" href="login.css">
+    	<style>
+    	    #addresult {
+    	        text-align: center;
+    	        font-size: 40px;
+    	        font-style: italic;
+    	        color: gray;
+    	    }
+    	</style>
+    </head>
+    
+    <body>
+        <h1>Register</h1>
+        <div id="container">
+            <form action="/action_page.php" method="post">
+                <label for="firstName"><b>First Name:</b></label><br>
+                <input type="text" class="textFields" id="firstname" onkeypress="if(event.keyCode == 13) {addUser()}" placeholder="Enter First Name">
+                <br>
+                <label for="lastName"><b>Last Name:</b></label><br>
+                <input type="text" class="textFields" id="lastname" onkeypress="if(event.keyCode == 13) {addUser()}" placeholder="Enter Last Name">
+                <br>
+        		<label for="username"><b>New Username:</b></label><br>
+        		<input type="text" class="textFields" id="login" onkeypress="if(event.keyCode == 13) {addUser()}" placeholder="Enter Username">
+        		<br>
+        		<label for="password"><b>New Password:</b></label>
+        		<input type="password" class="textFields" id="password" onkeypress="if(event.keyCode == 13) {addUser()}" placeholder="Enter Password">
+        		<br>
+        		<label for="password"><b>Verify Password:</b></label>
+        		<input type="password" class="textFields" id="conPsw" onkeypress="if(event.keyCode == 13) {addUser()}" placeholder="Re-enter Password">
+        		<br>
+                <p id="addresult"></p>
+        		
+        		<button id="register" class="button" type="button" onclick="addUser();"><span> Register </span></button>
+        		
+            </form>
+            
+            <a href="login.html"><button>Already have an account?</button></a>
+        </div>
+    </body>
+</html>
