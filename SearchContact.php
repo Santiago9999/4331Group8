@@ -31,14 +31,14 @@
 		{
 			while($row = $result->fetch_assoc())
 			{
-			//	$id = $row["id"];
+				$id = $row["id"];
 				$firstName = $row["firstname"];
 				$lastName = $row["lastname"];
 				$email = $row["email"];
 				$phone = $row["phone"];
-			//	$searchContacts['id'] = $id;
 
 			// 	Add the information for each contact into one array.
+				$searchContacts['id'] = $id;
 				$searchContacts['firstname'] = $firstName;
 				$searchContacts['lastname'] = $lastName;
 				$searchContacts['email'] = $email;
@@ -80,6 +80,7 @@
 		}
 	}
 
+	// Still returns just as professor Leinecker's original does. No change.
 	function sendResultInfoAsJson( $obj )
 	{
 		header('Content-type: application/json');
@@ -99,7 +100,7 @@
 		// Checking the # of contacts using the count command in order to loop.
 		for($i = 0; $i < count($searchResults); $i++)
 		{
-			// This amkes sure that the last contact being added does not have a 
+			// This makes sure that the last contact being added does not have a 
 			// comma afterward so that the JSON payload will be in the correct format.
 			if($i == count($searchResults) - 1)
 			{
@@ -114,7 +115,6 @@
 				header('Content-type: application/json');
 				// Encodes the individual contact array
 				$fixed .= json_encode($searchResults[$i]);
-				// Adds the comma afterward
 				$fixed .= ",";
 			}
 		}
